@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.footer {
+    background-color: #44675A;
+}
+
+.head1 {
+    color: #44675A;
+}
+
+.head1 button {
+    background-color: #44675A;
+    color: white;
+}
+
+.h1 {
+    color: #44675A;
+}
+
+.post {
+    background-color: #44675A;
+}
+
+.learmore {
+    color: #44675A;
+    border: 3px solid #44675A;
+}
+
+.icons {
+    color: #44675A;
+}
+
+label {
+    color: #44675A;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.input {
+    color: #44675A;
+    border: 1px solid #a2bcb2;
+    width: 385px;
+}
+
+.district {
+    color: #44675A;
+    border: 1px solid #a2bcb2;
+}
+
+.skills {
+    color: #5D676E;
+    border: 4px solid #0e1011;
+}
+
+.card2 {
+    background-color: #ebebeb;
+}
+
+.card {
+    border: 4px solid #44675A;
+}
+
+.Input {
+    border-bottom: 3px solid #44675A;
+}
+
+#scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.login {
+    background-image: url("../src/components/IT-worker-satisfaction-header.jpg");
+}
+
+.link:hover {
+    background-color: #5A8776;
+}
+
+.link:active {
+    background-color: #152922;
+}
+
+.text {
+    color: #5D676E;
+}
