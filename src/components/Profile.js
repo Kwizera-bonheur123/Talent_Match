@@ -11,10 +11,6 @@ import Searchbar from './Searchbar'
 
 const Profile = () => {
     const navigate = useNavigate();
-    const Save = () => {
-        alert("Account created successfull");
-        navigate("Profile");
-    }
     const Edit = () => {
         navigate("/EditProfilePictute");
     }

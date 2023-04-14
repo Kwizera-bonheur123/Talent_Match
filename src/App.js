@@ -15,6 +15,11 @@ import Profile from './components/Profile'
 import Message from './components/Message.js'
 import JobFeed from './components/JobFeed.js';
 import AppliedJob from './components/AppliedJob';
+import MoreDetail from './components/MoreDetail';
+import CompanyDetails from './components/CompanyDetails';
+import CompanyProfile from './components/CompanyProfile';
+import JobPost from './components/JobPost';
+import JobCreated from './components/JobCreated';
 function App() {
   return (
     <div>
@@ -34,6 +39,11 @@ function App() {
         <Route path='Job' element={<JobFeed />}></Route>
         <Route path='Applied' element={<AppliedJob />}></Route>
         <Route path='Message' element={<Message />}></Route>
+        <Route path="Job/Moredetail" element={<MoreDetail />}></Route>
+        <Route path="/company" element={<CompanyDetails />}></Route>
+        <Route path="/Company/profile" element={<CompanyProfile />}></Route>
+        <Route path="/Job/Post" element={<JobPost />}></Route>
+        <Route path="/Job/Created" element={<JobCreated />}></Route>
       </Routes>
     </div>
   );
