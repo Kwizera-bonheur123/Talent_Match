@@ -10,7 +10,7 @@ const DashboardAddition = () => {
     const navigate = useNavigate();
     const Save = () => {
         alert("Account created successfull");
-        navigate("Profile");
+        navigate("/Profile");
     }
     const Edit = () => {
         navigate("/EditProfilePictute");

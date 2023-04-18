@@ -1,6 +1,5 @@
 import React from 'react'
 import Nav from './CompanyProfileNav'
-import Image from '../components/default.jpg'
 import LocationLogo from './Vector.png'
 import { useNavigate } from 'react-router-dom'
 import Photo from '../components/add photo.png'
@@ -59,7 +58,7 @@ const CompanyProfile = () => {
                                 </div>
                             </div>
                             <p className='bg-black h-[1px] w-[570px] absolute mt-[330px]'></p>
-                            <h1 className='text font-bold text-[30px] absolute mt-[350px]'>About me</h1>
+                            <h1 className='text font-bold text-[30px] absolute mt-[350px]'>About Company</h1>
                             <p className='absolute mt-[400px] font-bold text-md text'>Lorem ipsum dolor sit amet consectetur. Mauris enim sed sit <br></br>pellentesque libero cras urna in accumsan. Faucibus nunc <br></br>aliquet commodo id lectus imperdiet imperdiet.<br></br><br></br>Urna malesuada lectus augue laoreet. Mattis ac blandit fringilla <br></br>amet faucibus tincidunt neque libero a.<br></br>Orci metus placerat gravida tempus viverra purus. Et sed gravida<br></br>viverra vitae at at tincidunt molestie quisque. Donec volutpat<br></br>mauris in cursus a ultrices curabitur.<br></br><br></br>
 
                                 Ornare neque diam id quam aliquam aliquet ultrices. Magna <br></br>amet aliquam mi mauris vel morbi.</p>

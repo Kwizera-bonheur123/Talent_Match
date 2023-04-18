@@ -1,4 +1,6 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
 import { Fragment } from 'react'
 import Login from './Login'
@@ -6,15 +8,30 @@ import Google from '../components/google.jpg'
 import Linkedin from '../components/linkedin.png'
 import Microsoft from '../components/microsoft.jpg'
 import Logo from '../components/Group 119032.png'
+import { useState } from 'react'
 const Signup = () => {
+    <ToastContainer />
+    const [agree, setAgree] = useState("agree");
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [confirm, setConfirm] = useState();
+    const [phone, setPhone] = useState();
+    const [status, setStatus] = useState("EMPLOYEE");
     const navigate = useNavigate();
+    const Send = (e) => {
+        e.preventDefault()
+        const data = { name, email, password, confirm, phone, status, agree }
+        toast()
+        console.log(data);
+    }
     return (
         <>
             <div className='  post h-20 w-full'>
                 <img src={Logo} className='w-[80px] h-[80px] ml-[40px]'></img>
                 <h1 className='font-bold text-3xl text-white absolute ml-[130px] mt-[-55px]'>TALENT MATCH</h1>
             </div>
-            <div className=' login md:h-screen h-[1000px] w-full top-0'>
+            <div className=' md:h-screen h-[1000px] w-full top-0'>
                 <div className=' absolute mt-[80px] ml-[20px]  md:ml-[270px] md:w-[804px] w-[350px] h-[500px] rounded-3xl border-2 shadow-lg'>
                     <div>
                         <div className='post font-bold  md:h-[144px] h-[100px] md:w-[800px] w-[350px] rounded-t-3xl'>
@@ -26,27 +43,29 @@ const Signup = () => {
                             </div>
                         </div>
                         <div className=' bg-white h-[600px] md:h-[356px] md:w-[802px] w-[348px] rounded-b-3xl grid sm:grid md:flex'>
-                            <div className=' md:mr-[60px] mr-[17px] md:ml-[50px] ml-[17px] mt-[30px]'>
+                            <form onSubmit={Send} className=' md:mr-[60px] mr-[17px] md:ml-[50px] ml-[17px] mt-[30px]'>
                                 <div className=' grid grid-cols-2 '>
                                     <div className='absolute pl-2 mt-[3px]'><ion-icon name="create-outline"></ion-icon></div>
-                                    <input type='text' placeholder='Full Name' className=' pl-7 border-2 md:w-[150px] w-[140px]' ></input>
+                                    <input value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='Full Name' className=' pl-7 border-2 md:w-[150px] w-[140px]' ></input>
                                     <div className='absolute pl-2 mt-[4px] ml-[160px]'><ion-icon name="mail-outline"></ion-icon></div>
-                                    <input type='text' placeholder='Email' className=' pl-6 border-2 md:w-[170px] w-[160px]' ></input>
+                                    <input value={email} onChange={(e) => setEmail(e.target.value)} type='text' placeholder='Email' className=' pl-6 border-2 md:w-[170px] w-[160px]' ></input>
                                     <div className='absolute mt-[55px]'><ion-icon name="lock-closed-outline"></ion-icon></div>
-                                    <input type='text' placeholder='Enter Your Password' className=' pl-4 border-2 md:w-[150px] w-[140px] mt-6' ></input>
+                                    <input value={password} onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Enter Your Password' className=' pl-4 border-2 md:w-[150px] w-[140px] mt-6' ></input>
                                     <div className='absolute pl-2 mt-[55px] ml-[160px]'><ion-icon name="lock-closed-outline"></ion-icon></div>
-                                    <input type='text' placeholder='Confirm Your Password' className='pl-5 border-2 md:w-[170px] w-[160px] mt-6' ></input>
+                                    <input value={confirm} onChange={(e) => setConfirm(e.target.value)} type='password' placeholder='Confirm Your Password' className='pl-5 border-2 md:w-[170px] w-[160px] mt-6' ></input>
                                     <div className='absolute mt-[108px] pl-2'><ion-icon name="call-outline"></ion-icon></div>
-                                    <input type='email' placeholder='Phone number' className=' pl-6 border-2 mt-6 md:w-[340px] w-[315px]'></input>
+                                    <input value={phone} onChange={(e) => setPhone(e.target.value)} type='number' placeholder='Phone number' className=' pl-6 border-2 mt-6 md:w-[340px] w-[315px]'></input>
                                 </div>
-                                <select className='absolute w-[315px] md:w-[340px] mt-6 border-2'>
-                                    <option>SIGN UP AS</option>
-                                    <option>RECRUITER</option>
-                                    <option>EMPLOYEE</option>
-                                </select>
-                                <div className='absolute w-[340px] mt-14'> <input type='checkbox' ></input><label className='pl-4'>I agree to the terms and conditions</label></div>
-                                <input type='button' value='SIGN UP' className=' absolute mt-28 post md:w-[340px] w-[315px] h-9 text-white font-bold'></input>
-                            </div>
+                                <div className='mt-[10px]'>
+                                    <label>Status</label><br></br>
+                                    <div className='flex gap-3 text-md text-gray-400 font-semibold'>
+                                        <p>EMPLOYEE</p><input type="radio" checked={status === 'EMPLOYEE'} name="status" onChange={(e) => setStatus(e.target.value)} value="EMPLOYEE"></input>
+                                        <p>RECRUITER</p><input type="radio" name="status" checked={status === 'RECRUITERS'} onChange={(e) => setStatus(e.target.value)} value="RECRUITERS"></input>
+                                    </div>
+                                </div>
+                                <div className='absolute w-[340px] mt-5'> <input checked={agree} value={agree} onChange={(e) => setAgree(e.target.value)} type='checkbox' ></input><label className='pl-4 text-sm'>I agree to the terms and conditions</label></div>
+                                <input type='submit' value='SIGN UP' className=' absolute mt-20 post md:w-[340px] w-[315px] h-9 text-white font-bold'></input>
+                            </form>
                             <div className=' absolute md:w-[4px] w-[300px] md:h-52 h-2 bg-gray-200 md:mt-[20px] mt-[350px] md:ml-[420px] ml-[25px]'>
                                 <p className=' absolute h-10 w-10 rounded-full ml-[120px] md:ml-[-15px] bg-white mt-[-10px] md:mt-[75px] border-2'><h5 className='ml-[7px] mt-[5px]'>OR</h5></p>
                             </div>
