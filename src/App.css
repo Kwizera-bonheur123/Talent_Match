@@ -74,12 +74,12 @@ label {
     border-bottom: 3px solid #44675A;
 }
 
-#scroll::-webkit-scrollbar {
-    display: none;
+.Inputred {
+    border-bottom: 3px solid red;
 }
 
-.login {
-    background-image: url("../src/components/IT-worker-satisfaction-header.jpg");
+#scroll::-webkit-scrollbar {
+    display: none;
 }
 
 .link:hover {

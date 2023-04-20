@@ -10,20 +10,51 @@ import Microsoft from '../components/microsoft.jpg'
 import Logo from '../components/Group 119032.png'
 import { useState } from 'react'
 const Signup = () => {
-    <ToastContainer />
     const [agree, setAgree] = useState("agree");
     const [name, setName] = useState();
+    const [nameerror, setNameerror] = useState(true);
     const [email, setEmail] = useState();
+    const [emailerror, setEmailerror] = useState(true);
     const [password, setPassword] = useState();
+    const [passworderror, setPassworderror] = useState(true);
     const [confirm, setConfirm] = useState();
+    const [confirmerror, setConfirmerror] = useState(true);
     const [phone, setPhone] = useState();
-    const [status, setStatus] = useState("EMPLOYEE");
+    const [phoneerror, setPhoneerror] = useState(true);
+    const [status, setStatus] = useState();
+    const [statuserror, setStatuserror] = useState(true);
     const navigate = useNavigate();
     const Send = (e) => {
         e.preventDefault()
         const data = { name, email, password, confirm, phone, status, agree }
-        toast()
-        console.log(data);
+        if (name == '' || name == null) {
+            document.getElementById("nameerror").innerHTML = "Name required"
+            setNameerror(!nameerror)
+        }
+        if (email == '' || email == null) {
+            document.getElementById("emailerror").innerHTML = "Email required"
+            setEmailerror(!emailerror)
+        }
+        if (name == '' || name == null) {
+            document.getElementById("nameerror").innerHTML = "Name required"
+            setNameerror(!nameerror)
+        }
+        if (password == '' || password == null) {
+            document.getElementById("passworderror").innerHTML = "Password required"
+            setPassworderror(!passworderror)
+        }
+        if (confirm == '' || confirm == null) {
+            document.getElementById("confirmerror").innerHTML = "Confirm required"
+            setConfirmerror(!confirmerror)
+        }
+        if (phone == '' || phone == null) {
+            document.getElementById("phoneerror").innerHTML = "Phone required"
+            setPhoneerror(!phoneerror)
+        }
+        if (status == '' || status == null) {
+            document.getElementById("statuserror").innerHTML = "Status required"
+            setStatuserror(!statuserror)
+        }
     }
     return (
         <>
@@ -44,27 +75,43 @@ const Signup = () => {
                         </div>
                         <div className=' bg-white h-[600px] md:h-[356px] md:w-[802px] w-[348px] rounded-b-3xl grid sm:grid md:flex'>
                             <form onSubmit={Send} className=' md:mr-[60px] mr-[17px] md:ml-[50px] ml-[17px] mt-[30px]'>
-                                <div className=' grid grid-cols-2 '>
-                                    <div className='absolute pl-2 mt-[3px]'><ion-icon name="create-outline"></ion-icon></div>
-                                    <input value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='Full Name' className=' pl-7 border-2 md:w-[150px] w-[140px]' ></input>
-                                    <div className='absolute pl-2 mt-[4px] ml-[160px]'><ion-icon name="mail-outline"></ion-icon></div>
-                                    <input value={email} onChange={(e) => setEmail(e.target.value)} type='text' placeholder='Email' className=' pl-6 border-2 md:w-[170px] w-[160px]' ></input>
-                                    <div className='absolute mt-[55px]'><ion-icon name="lock-closed-outline"></ion-icon></div>
-                                    <input value={password} onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Enter Your Password' className=' pl-4 border-2 md:w-[150px] w-[140px] mt-6' ></input>
-                                    <div className='absolute pl-2 mt-[55px] ml-[160px]'><ion-icon name="lock-closed-outline"></ion-icon></div>
-                                    <input value={confirm} onChange={(e) => setConfirm(e.target.value)} type='password' placeholder='Confirm Your Password' className='pl-5 border-2 md:w-[170px] w-[160px] mt-6' ></input>
-                                    <div className='absolute mt-[108px] pl-2'><ion-icon name="call-outline"></ion-icon></div>
-                                    <input value={phone} onChange={(e) => setPhone(e.target.value)} type='number' placeholder='Phone number' className=' pl-6 border-2 mt-6 md:w-[340px] w-[315px]'></input>
+                                <div className=' grid grid-cols-2 gap-2'>
+                                    <div>
+                                        <div className='absolute pl-2 mt-[3px]'><ion-icon name="create-outline"></ion-icon></div>
+                                        <input value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='Full Name' className={` ${nameerror ? "border-gray-500" : "border-red-600"} pl-7 border-2 md:w-[150px] w-[140px]`}></input>
+                                        <span id="nameerror" className='font-semibold text-red-600'></span>
+                                    </div>
+                                    <div>
+                                        <div className='absolute pl-2 mt-[4px]'><ion-icon name="mail-outline"></ion-icon></div>
+                                        <input value={email} onChange={(e) => setEmail(e.target.value)} type='text' placeholder='Email' className={` ${emailerror ? "border-gray-500" : "border-red-600"} pl-6 border-2 md:w-[170px] w-[160px]`} ></input>
+                                        <span id="emailerror" className='font-semibold text-red-600'></span>
+                                    </div>
+                                    <div>
+                                        <div className='absolute mt-[12px]'><ion-icon name="lock-closed-outline"></ion-icon></div>
+                                        <input value={password} onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Enter Your Password' className={` ${passworderror ? "border-gray-500" : "border-red-600"} pl-4 border-2 md:w-[150px] w-[140px] mt-2`} ></input>
+                                        <span id="passworderror" className='font-semibold text-red-600'></span>
+                                    </div>
+                                    <div>
+                                        <div className='absolute pl-2 mt-[12px]'><ion-icon name="lock-closed-outline"></ion-icon></div>
+                                        <input value={confirm} onChange={(e) => setConfirm(e.target.value)} type='password' placeholder='Confirm Your Password' className={` ${confirmerror ? "border-gray-500" : "border-red-600"} pl-5 border-2 md:w-[170px] w-[160px] mt-2`} ></input>
+                                        <span id="confirmerror" className='font-semibold text-red-600'></span>
+                                    </div>
+                                    <div>
+                                        <div className='absolute mt-[10px] pl-2'><ion-icon name="call-outline"></ion-icon></div>
+                                        <input value={phone} onChange={(e) => setPhone(e.target.value)} type='number' placeholder='Phone number' className={`${phoneerror ? "border-gray-500" : "border-red-600"} pl-6 border-2 mt-2 md:w-[340px] w-[315px]`}></input>
+                                        <span id="phoneerror" className='font-semibold text-red-600'></span>
+                                    </div>
                                 </div>
-                                <div className='mt-[10px]'>
+                                <div>
                                     <label>Status</label><br></br>
-                                    <div className='flex gap-3 text-md text-gray-400 font-semibold'>
+                                    <div className='flex gap-3 text-md h1 font-semibold'>
                                         <p>EMPLOYEE</p><input type="radio" checked={status === 'EMPLOYEE'} name="status" onChange={(e) => setStatus(e.target.value)} value="EMPLOYEE"></input>
                                         <p>RECRUITER</p><input type="radio" name="status" checked={status === 'RECRUITERS'} onChange={(e) => setStatus(e.target.value)} value="RECRUITERS"></input>
                                     </div>
+                                    <span id="statuserror" className='font-semibold text-red-600'></span>
                                 </div>
-                                <div className='absolute w-[340px] mt-5'> <input checked={agree} value={agree} onChange={(e) => setAgree(e.target.value)} type='checkbox' ></input><label className='pl-4 text-sm'>I agree to the terms and conditions</label></div>
-                                <input type='submit' value='SIGN UP' className=' absolute mt-20 post md:w-[340px] w-[315px] h-9 text-white font-bold'></input>
+                                <div className='absolute w-[340px] mt-1'> <input checked={agree} value={agree} onChange={(e) => setAgree(e.target.value)} type='checkbox' ></input><label className='pl-4 text-sm'>I agree to the terms and conditions</label></div>
+                                <input type='submit' value='SIGN UP' className=' absolute mt-8 post md:w-[340px] w-[315px] h-9 text-white font-bold'></input>
                             </form>
                             <div className=' absolute md:w-[4px] w-[300px] md:h-52 h-2 bg-gray-200 md:mt-[20px] mt-[350px] md:ml-[420px] ml-[25px]'>
                                 <p className=' absolute h-10 w-10 rounded-full ml-[120px] md:ml-[-15px] bg-white mt-[-10px] md:mt-[75px] border-2'><h5 className='ml-[7px] mt-[5px]'>OR</h5></p>

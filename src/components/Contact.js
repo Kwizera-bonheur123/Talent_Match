@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav from './nav'
 import Telephone from '../components/Telephone.png'
 import Email from '../components/Email.png'
@@ -8,6 +8,19 @@ import Twitter from '../components/Group 23.png'
 import Fb from '../components/Group 24.png'
 import Footer from './Footer'
 const Contact = () => {
+    const [email, setEmail] = useState();
+    const [emailerror, setEmailerror] = useState();
+    const [message, setMessage] = useState();
+    const [messageerror, setMessageerror] = useState();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (email == '' || email == null) {
+            setEmailerror(!emailerror)
+        }
+        if (message == '' || message == null) {
+            setMessageerror(!messageerror)
+        }
+    }
     return (
         <div>
             <Nav />
@@ -19,17 +32,14 @@ const Contact = () => {
                     </div>
                 </div>
                 <div className='shadow-2xl md:shadow-black md:flex grid h-[800px] md:h-[370px] md:ml-[250px] w-screen md:w-[950px] -mt-[140px] absolute'>
-                    <div className='w-[475px] bg-white h-[170px] md:h-[370px]'>
+                    <form onSubmit={handleSubmit} className='w-[475px] bg-white h-[170px] md:h-[370px]'>
                         <h1 className='h1 ml-[140px] mt-[40px] absolute font-bold text-xl'>Send a message</h1>
                         <div className=' md:mr-0 mr-[15px] absolute mt-[90px] ml-[15px] md:ml-[30px] grid grid-cols-2 gap-5'>
-                            <input type='text' placeholder='First Name' className=' Input'></input>
-                            <input type='text' placeholder='Last Name' className='Input'></input>
-                            <input type='number' placeholder='Phone' className=' Input'></input>
-                            <input type='text' placeholder='Email' className=' Input'></input>
+                            <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder={`${!emailerror ? "Email" : "please Email is required"}`} className={` ${!emailerror ? "Input" : " Inputred"} Input w-[400px]`}></input>
                         </div>
-                        <input type='text' placeholder='Message' className=' Input w-[360px] md:w-[400px] ml-[15px] md:ml-[30px] mt-[190px]'></input>
-                        <button className='post w-[170px] rounded-xl text-white font-bold h-[40px] mt-[50px] ml-[130px]'>Submit</button>
-                    </div>
+                        <input type='textarea' value={message} onChange={(e) => setMessage(e.target.value)} placeholder={`${!emailerror ? "Message" : "please Message is required"}`} className={` ${!emailerror ? "Input" : " Inputred"} w-[360px] md:w-[400px] ml-[15px] md:ml-[30px] mt-[170px]`}></input>
+                        <input type="submit" value="SUBMIT" className='post w-[170px] rounded-xl text-white font-bold h-[40px] mt-[50px] ml-[130px]'></input>
+                    </form>
                     <div className='post w-screen md:w-[475px]'>
                         <h2 className='text-white absolut ml-[60px] mt-[30px] font-semibold text-2xl'>Contact info</h2>
                         <div className='flex ml-[60px] text-white gap-5 mt-[30px]'>
@@ -48,10 +58,10 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <div className='bg-white w-screen h-[640px] md:h-[300px]'></div>
             <Footer />
-        </div>
+        </div >
     )
 }
 
