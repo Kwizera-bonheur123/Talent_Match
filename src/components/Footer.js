@@ -40,8 +40,8 @@ const Footer = () => {
                 <div className=' w-8 h-8 border-2 hover:w-12 hover:h-12 hover:border-4 border-white rounded-full pl-[6px] pt-1 hover:pl-[12px] hover:pt-2'><ion-icon name="logo-twitter"></ion-icon></div>
                 <div className=' w-8 h-8 border-2 hover:w-12 hover:h-12 hover:border-4 border-white rounded-full pl-[6px] pt-1 hover:pl-[12px] hover:pt-2'><ion-icon name="logo-facebook"></ion-icon></div>
             </div>
-            <div className=' bottom-0 bg-white h-1 mt-[70px]'></div>
-            <div className='mt-[22px] ml-[550px]'>&#169;2023 TalentMatch</div>
+            <div className=' bottom-0 bg-white h-[1px] mt-[70px]'></div>
+            <div className='mt-[22px] px-[660px]'>&#169;2023 TalentMatch</div>
         </div>
     )
 }

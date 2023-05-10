@@ -10,7 +10,7 @@ const CompanyDetails = () => {
     }
     return (
         <div className='flex gap-48'>
-            <div className='post h-[700px] w-[350px]'>
+            <div className='post h-[800px] w-[350px]'>
                 <div>
                     <img src={Logo} className='w-[80px] h-[80px] ml-[20px]'></img>
                     <h1 className='font-bold text-3xl text-white absolute ml-[110px] mt-[-55px]'>TALENT MATCH</h1>

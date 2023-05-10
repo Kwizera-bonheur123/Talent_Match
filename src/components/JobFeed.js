@@ -6,15 +6,14 @@ import Tech from '../components/TCH.png'
 import Footer from './Footer.js'
 import Searchbar from './Searchbar'
 import { useNavigate } from 'react-router-dom'
-const JobFeed = () => {
+import Layout from './Layout'
+const JobFeed = ({ open, setOpen }) => {
   const navigate = useNavigate();
   return (
-    <div>
-      <div className='flex gap-14'>
-        <Nav />
-        <div className='w-[930px]'>
-          <Searchbar />
-          <div className='grid grid-cols-3 gap-10 mt-[40px]'>
+    <Layout>
+      <div className='flex gap-24'>
+        <div className='w-full'>
+          <div className={" flex flex-wrap gap-4"}>
             <div className='bg-gray-200 w-[300px] h-[370px] rounded-lg'>
               <img src={Slvt} className='w-[150px] h-[130px]'></img>
               <h1 className='absolute ml-[205px] -mt-[80px] font-bold'>Full-time</h1>
@@ -108,8 +107,7 @@ const JobFeed = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 

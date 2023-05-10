@@ -20,6 +20,10 @@ import CompanyDetails from './components/CompanyDetails';
 import CompanyProfile from './components/CompanyProfile';
 import JobPost from './components/JobPost';
 import JobCreated from './components/JobCreated';
+import ProfileDashboard from './components/ProfileDashboard';
+import ViewApplies from './components/ViewApplies';
+import CompanyDashboard from './components/CompanyDashboard';
+import ActiveJobs from './components/ActiveJobs';
 function App() {
   return (
     <div>
@@ -36,7 +40,7 @@ function App() {
         <Route path='/Dashboard/Career' element={<DashboardCareer />}></Route>
         <Route path='/Dashboard/Addition' element={<DashboardAddition />}></Route>
         <Route path='/Profile' element={<Profile />}></Route>
-        <Route path='Job' element={<JobFeed />}></Route>
+        <Route path='/Job' element={<JobFeed />}></Route>
         <Route path='Applied' element={<AppliedJob />}></Route>
         <Route path='Message' element={<Message />}></Route>
         <Route path="Job/Moredetail" element={<MoreDetail />}></Route>
@@ -44,8 +48,11 @@ function App() {
         <Route path="/Company/profile" element={<CompanyProfile />}></Route>
         <Route path="/Job/Post" element={<JobPost />}></Route>
         <Route path="/Job/Created" element={<JobCreated />}></Route>
+        <Route path="/Profile/Dashboard" element={<ProfileDashboard />}></Route>
+        <Route path="/ViewApplies" element={<ViewApplies />}></Route>
+        <Route path="/ActiveJob" element={<ActiveJobs />}></Route>
       </Routes>
-    </div>
+    </div >
   );
 }
 
